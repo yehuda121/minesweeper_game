@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 #include <stdio.h>
 #include <stdarg.h>
 #include "colorPrint.h"
@@ -22,32 +20,3 @@ void colorPrint(fgColor fg, bgColor bg, attribute att, char* format,...)
 	va_end (args);
 	printf("\e[0m");
 }
-
-
-=======
-
-#include <stdio.h>
-#include <stdarg.h>
-#include "colorPrint.h"
-
-void clearScreen()
-{
-	printf("\e[1;1H\e[2J");
-}
-
-void colorPrint(fgColor fg, bgColor bg, attribute att, char* format,...)
-{
-	va_list args;
-	if(bg != BG_Def)
-		printf("\e[%d;%d;%dm",att,fg,bg);
-	else
-		printf("\e[%d;%dm",att,fg);
-
-	va_start (args, format);
-	vprintf(format, args);
-	va_end (args);
-	printf("\e[0m");
-}
-
-
->>>>>>> 2d4274abbb3aaf85c8043794f776e0d5d0791d97
